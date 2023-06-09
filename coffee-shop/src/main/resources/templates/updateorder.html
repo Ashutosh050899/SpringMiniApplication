@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <h1>Place New Order</h1>
+  <form th:action="@{/updateOrder}" method="post" th:object="${coffee}">
+
+    <label> Enter Order Number</label>
+    <input type="text" name="orderNo" th:field="*{orderNo}"readonly>
+    <label> Enter Customer Name</label>
+    <input type="text" name="customerName" th:field="*{customerName}">
+
+    <label> Enter Customer Order</label>
+    <input type="text" name="customerOrder" th:field="*{customerOrder}">
+
+    <label> Enter TOTAL BILL</label>
+    <input type="text" name="totalBill" th:field="*{totalBill}">
+    <input type="submit" value="Update Order">
+  </form>
+</div>
+
+</body>
+</html>

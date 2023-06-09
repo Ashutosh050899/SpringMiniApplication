@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <h1>coffee Shop </h1>
+  <hr>
+  <a href="addOrder"><button>Add Product</button></a>
+
+</div>
+<table>
+  <tr>
+    <th> ORDER ID</th>
+    <th> CUSTOMER NAME</th>
+    <th> CUSTOMER ORDER</th>
+    <th>TOTAL BILL</th>
+    <th> ACTIONS</th>
+  </tr>
+  <tr th:each="coffee:${records}">
+    <td th:text="${coffee.orderNo}"> </td>
+    <td th:text="${coffee.customerName}"> </td>
+    <td th:text="${coffee.customerOrder}"> </td>
+    <td th:text="${coffee.totalBill}"> </td>
+
+    <td>
+      <a th:href="@{/updateorder/{id}(id=${coffee.orderNo})}"> <button>UPDATE ORDER</button></a>
+      <a th:href="@{/deleteorder/{id}(id=${coffee.orderNo})}"> <button>CANCEL ORDER</button></a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
